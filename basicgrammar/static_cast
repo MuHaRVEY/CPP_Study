@@ -4,19 +4,15 @@ using namespace std;
 
 int main()
 {
-	const int num_students = 5;
-	int score0 = 84;
-	int score1 = 92;
-	int score2 = 76;
-	int score3 = 81;
-	int score4 = 56;
+	//const int num_students = 5;
+	int scores[] = { 84,92,76,81,56 };
 
-	int total_score = score0 + score1 + score2 + score3 + score4;
+	const int num_students = sizeof(scores) / sizeof(int);
+	
+	int total_scores = 0;
+	for (int i = 0; i < num_students; i++)
+		total_scores += scores[i];
 
-	double avg_score = static_cast<double>(total_score) / num_students;        //static_cast 형변환은 별게 아니다.
-                                                                            /*묵시적, 암시적 형 변환 등과 같이 형변환을 위해 쓰는 방법 중 하나로 
-                                                                            코드 상에서 형봔환 시에 오류를 체크해주는 기능을 수행한다.
-                                                                            다만 일반적인 자료형이 아닌 상속관계에서는 static_cast역시 오류가 일어나므로
-                                                                            dynamic_cast를 사용한다고 한다.*/
+	double avg_score = static_cast<double>(total_scores) / num_students;			//static_cast
 	return 0;
 }
